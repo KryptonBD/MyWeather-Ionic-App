@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>My Weather</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="weather">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col col-7 offset-2>
+        <h2 class="location">{{weather.name}}, {{weather.sys.country}}</h2>
+        <div class="icon">
+          <img src="http://openweathermap.org/img/w/{{weather.weather['0'].icon}}.png" alt="">
+        </div>
+        <h3 class="description">{{weather.weather['0'].description}}</h3>
+        <h1 class="temp">{{ getTemp(weather.main.temp) }}&deg;</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+            <ion-row>
+              <ion-col col-6><strong>Min: </strong> {{ getTemp(weather.main.temp_min) }}&deg;C</ion-col>
+              <ion-col col-6><strong>Max: </strong> {{ getTemp(weather.main.temp_max) }}&deg;C</ion-col>
+            </ion-row>
+          </ion-item>
+          <ion-item>
+            <ion-row><strong>Clouds: </strong> {{weather.clouds.all}}%</ion-row>
+          </ion-item>
+          <ion-item>
+            <ion-row>
+              <ion-col col-6><strong>Wind Speed: </strong> {{weather.wind.speed}}
+              <ion-col col-6><strong>Direction: </strong> {{ degToCompass(weather.wind.deg) }}</ion-col></ion-col>
+            </ion-row>
+          </ion-item>
+          <ion-item>
+            <ion-row>
+              <ion-col col-5><strong>Humidity: </strong>{{ weather.main.humidity}}%</ion-col>
+              <ion-col col-7><strong>Pressure: </strong>{{ weather.main.pressure }} hpa</ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

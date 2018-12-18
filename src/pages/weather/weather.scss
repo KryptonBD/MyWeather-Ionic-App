@@ -1,0 +1,19 @@
+page-weather {
+  .weather{
+    background-color: #2d3d5a !important;
+    color: #ffffff;
+
+    .location,
+    .icon,
+    .description,
+    .temp{
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .temp{
+      font-size: 70px;
+      font-weight: normal;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="settings">
+  <form>
+    <ion-item>
+      <ion-label fixed>Change City</ion-label>
+      <ion-input type="text" #updatedCity></ion-input>
+    </ion-item>
+    <p>Current City: {{ currentCity }}</p>
+    <button ion-button block (click)="onUpdate(updatedCity)">Update City</button>
+  </form>
+
+</ion-content>
